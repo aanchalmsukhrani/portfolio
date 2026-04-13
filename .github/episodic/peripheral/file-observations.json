@@ -1,0 +1,25 @@
+{
+  "hotFiles": [
+    "components/resume-sections.tsx",
+    "components/experience.tsx",
+    "components/hero.tsx",
+    "components/navigation.tsx",
+    "app/education/page.tsx",
+    "components/ui/navigation-menu.tsx",
+    "components/footer.tsx"
+  ],
+  "stalledFiles": [
+    "app/",
+    "components.json",
+    "components/",
+    "hooks/",
+    "lib/",
+    "next-env.d.ts",
+    "next.config.mjs",
+    "package-lock.json",
+    "package.json",
+    "pnpm-lock.yaml"
+  ],
+  "todoHotspots": [],
+  "lastUpdated": 1776049551808
+}
