@@ -9,17 +9,9 @@
     "components/footer.tsx"
   ],
   "stalledFiles": [
-    "app/",
-    "components.json",
-    "components/",
-    "hooks/",
-    "lib/",
-    "next-env.d.ts",
-    "next.config.mjs",
-    "package-lock.json",
-    "package.json",
-    "pnpm-lock.yaml"
+    "github/episodic/peripheral/file-observations.json",
+    "app/skills/page.tsx"
   ],
   "todoHotspots": [],
-  "lastUpdated": 1776049551808
+  "lastUpdated": 1776050962255
 }

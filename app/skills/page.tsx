@@ -1,4 +1,4 @@
-\"use client\";
+"use client";
 
 import { Skills } from "@/components/skills";
 import { TechMarquee } from "@/components/tech-marquee";
