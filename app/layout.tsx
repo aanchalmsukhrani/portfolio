@@ -1,15 +1,14 @@
 import type { Metadata } from 'next'
-import { Inter, JetBrains_Mono } from 'next/font/google'
-import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
-
-const _inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const _jetbrainsMono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-jetbrains-mono" });
 
 export const metadata: Metadata = {
   title: 'Aanchal Sukhrani | Software Engineer',
-  description: 'Software Engineer specializing in Distributed Systems and Cloud Native Backend Architecture',
-  generator: 'v0.app',
+  description: 'Aanchal Sukhrani is a software engineer building reliable backend systems, distributed services, and cloud infrastructure.',
+  openGraph: {
+    title: 'Aanchal Sukhrani | Software Engineer',
+    description: 'Backend systems, distributed computing, and cloud infrastructure.',
+    type: 'website',
+  },
   icons: {
     icon: [
       {
@@ -38,7 +37,6 @@ export default function RootLayout({
     <html lang="en">
       <body className="font-sans antialiased">
         {children}
-        {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
   )

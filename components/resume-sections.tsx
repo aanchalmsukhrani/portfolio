@@ -1,187 +1,71 @@
-"use client";
+import { ArrowUpRight } from "lucide-react";
 
-import { Briefcase, GraduationCap, Code, Server, Database, Cloud, Cpu } from "lucide-react";
-import { motion } from "framer-motion";
-import Image from "next/image";
-import type { ReactNode } from "react";
-
-const experience = [
+const roles = [
   {
-    company: "GenAIx",
-    role: "Software Engineer",
-    location: "New York, NY",
-    period: "May 2025 – Present",
-    logoSrc: "/logo-genaix.png",
-    bullets: [
-      "Designed AWS Lambda + API Gateway stack with SQS async layer; <strong>25%</strong> lower latency, <strong>99.9%</strong> availability.",
-      "Automated Jenkins CI/CD for zero-downtime releases; cut deploy time <strong>40%</strong>.",
-      "Cloud cost optimizations saved <strong>$4,500</strong> annually; PyTest coverage to <strong>85%</strong> reducing prod bugs <strong>30%</strong>.",
+    company: "GenAIx", title: "Software Engineer", place: "New York, NY", dates: "May 2025 — Present", current: true,
+    work: [
+      "Promoted to a permanent role and own backend architecture and AWS infrastructure end to end.",
+      "Built a TypeScript browser extension that detects employee AI prompts and emits JSON events across 100+ client organizations.",
+      "Designed API Gateway, Lambda, and SQS ingestion absorbing 2,000+ QPS bursts with immediate 202 responses, reducing client latency by 25%.",
+      "Built a multi-tenant Python NLP scoring engine processing 200+ prompts/sec, with idempotent PostgreSQL writes and S3 archival at 99.9% availability.",
+      "Automated Jenkins CI/CD and Terraform provisioning; raised test coverage to 85%, cut releases by 40%, and environment setup from 2 days to 30 minutes.",
+      "Optimized Lambda concurrency and autoscaling to reduce compute costs by 22%.",
     ],
   },
   {
-    company: "Group Futurista",
-    role: "Software Engineer",
-    location: "Mumbai, India",
-    period: "May 2023 – Sep 2023",
-    logoSrc: "/logo-groupfuturista.png",
-    bullets: [
-      "Java/Spring Boot workflow platform saving <strong>200+</strong> manual hours yearly.",
-      "PostgreSQL indexing & schema redesign improved queries <strong>15%</strong>.",
-      "REST APIs integrated third-party marketing tools with internal data." ,
+    company: "Group Futurista", title: "Software Engineer", place: "Mumbai, India", dates: "May 2023 — Sep 2023",
+    work: [
+      "Built a Java microservices platform with Spring Boot and Hibernate, supporting 100k+ monthly active transactions.",
+      "Redesigned PostgreSQL event-tracking schemas with indexing, query plan tuning, and connection pooling to improve query performance by 15%.",
+      "Integrated external marketing systems with clustered PostgreSQL databases while keeping p95 API response times below 100ms.",
     ],
   },
   {
-    company: "A1 Systems",
-    role: "Data Engineer Intern",
-    location: "Mumbai, India",
-    period: "Jun 2021 – Dec 2022",
-    logoSrc: "/logo-a1s.svg",
-    bullets: [
-      "Java JDBC ingestion from Azure SQL increased throughput <strong>30%</strong>.",
-      "Refactored monolith to OO micro-modules, onboarding time down <strong>20%</strong>.",
-      "Introduced JUnit/Mockito foundations and TDD culture." ,
+    company: "A1 Systems", title: "Software Engineer", place: "Mumbai, India", dates: "Jun 2021 — Dec 2022",
+    work: [
+      "Built Java JDBC batch ingestion from Azure SQL, processing 500GB+ of daily data and increasing throughput by 30%.",
+      "Refactored legacy monolith code into object-oriented microservices, reducing feature onboarding time by 20%.",
+      "Introduced JUnit and Mockito testing foundations for refactored modules.",
     ],
-  },
-];
-
-const education = [
-  {
-    school: "Arizona State University",
-    degree: "M.S. Information Technology",
-    detail: "CGPA <strong>4.0 / 4.0</strong>",
-    period: "Jan 2024 – Dec 2025",
-    location: "Tempe, AZ",
-    logoSrc: "/logo-asu.png",
-  },
-  {
-    school: "University of Mumbai",
-    degree: "B.E. Computer Engineering",
-    detail: "CGPA <strong>3.81 / 4.0</strong>",
-    period: "Aug 2019 – May 2023",
-    location: "Mumbai, India",
-    logoSrc: "/logo-uom.png",
-  },
-];
-
-const skills = [
-  {
-    title: "Languages",
-    icon: <Code className="h-4 w-4" />,
-    items: "Python, Java, JavaScript/TypeScript, SQL, Bash, HTML/CSS",
-  },
-  {
-    title: "Backend & APIs",
-    icon: <Server className="h-4 w-4" />,
-    items: "Spring Boot, Node.js, Flask, FastAPI, Hibernate, SQLAlchemy, REST, GraphQL, Microservices, Distributed Systems",
-  },
-  {
-    title: "Cloud & DevOps",
-    icon: <Cloud className="h-4 w-4" />,
-    items: "AWS (Lambda, API GW, EC2, S3, SQS, CloudWatch), Docker, Kubernetes, Jenkins, Terraform, CI/CD, Linux",
-  },
-  {
-    title: "Data & Messaging",
-    icon: <Database className="h-4 w-4" />,
-    items: "PostgreSQL, MySQL, Redis, MongoDB, DynamoDB, Kafka, Azure SQL",
-  },
-  {
-    title: "Practices",
-    icon: <Cpu className="h-4 w-4" />,
-    items: "OOP, System Design, Unit Testing (JUnit, PyTest, Mockito), Agile/Scrum, DSA",
   },
 ];
 
 export function ResumeSections() {
   return (
-    <section className="px-3 md:px-5 lg:px-6 pb-16 space-y-12">
-      <div className="mx-auto flex w-full max-w-[1700px] flex-col gap-12" id="experience">
-        <Card title="Experience" icon={<Briefcase className="h-5 w-5" />}>
-          <div className="space-y-5">
-            {experience.map((item) => (
-              <div key={item.company} className="rounded-2xl border border-white/10 bg-white/5 p-5 md:p-6">
-                <div className="flex flex-wrap items-center justify-between gap-3">
-                    <div className="flex items-start gap-3">
-                    <div className="h-10 w-10 overflow-hidden rounded-xl flex items-center justify-center">
-                      {item.logoSrc ? (
-                        <Image src={item.logoSrc} alt={`${item.company} logo`} width={40} height={40} />
-                      ) : (
-                        <span className="text-sm font-semibold text-slate-900">•</span>
-                      )}
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-semibold text-slate-50">{item.role}</h3>
-                      <p className="text-sm text-slate-300">{item.company} · {item.location}</p>
-                    </div>
-                  </div>
-                  <span className="text-xs uppercase tracking-[0.16em] text-slate-400">{item.period}</span>
+    <section id="experience" className="section-wrap py-24">
+      <div className="section-heading">
+        <p className="eyebrow"><span>04</span> Career</p>
+        <h2>Engineering with<br className="hidden sm:block" /> measurable impact.</h2>
+        <p className="section-lede">Experience across cloud platforms, data intensive services, and production backend systems.</p>
+      </div>
+      <div className="mt-12 space-y-4">
+        {roles.map((role, index) => (
+          <article key={role.company} className="experience-card">
+            <div className="experience-index">0{index + 1}</div>
+            <div className="experience-content">
+              <div className="flex flex-wrap items-start justify-between gap-4">
+                <div>
+                  <div className="flex flex-wrap items-center gap-3"><h3>{role.company}</h3>{role.current && <span className="current-tag"><i /> Current</span>}</div>
+                  <p className="role-line">{role.title} <span>·</span> {role.place}</p>
                 </div>
-                <ul className="mt-3 space-y-2 text-sm text-slate-100">
-                  {item.bullets.map((b, i) => (
-                    <li key={i} className="flex gap-2">
-                      <span className="mt-1 h-1.5 w-1.5 rounded-full bg-accent" />
-                      <span dangerouslySetInnerHTML={{ __html: b }} />
-                    </li>
-                  ))}
-                </ul>
+                <p className="date-line">{role.dates}</p>
               </div>
-            ))}
-          </div>
-        </Card>
+              <ul className="experience-list">{role.work.map((item) => <li key={item}>{item}</li>)}</ul>
+            </div>
+          </article>
+        ))}
       </div>
 
-      <div className="mx-auto flex w-full max-w-[1700px] flex-col gap-10" id="education">
-        <Card title="Education" icon={<GraduationCap className="h-5 w-5" />}>
-          <div className="space-y-4 text-sm text-slate-100">
-            {education.map((edu) => (
-                  <div key={edu.school} className="rounded-xl border border-white/10 bg-white/5 p-4">
-                    <div className="flex items-center justify-between gap-3">
-                      <div className="flex items-center gap-3">
-                        {edu.logoSrc && (
-                          <div className="relative h-12 w-12 overflow-hidden rounded-md bg-transparent">
-                            <Image
-                              src={edu.logoSrc}
-                              alt={`${edu.school} logo`}
-                              fill
-                              className="object-contain"
-                              sizes="56px"
-                              priority
-                              unoptimized
-                            />
-                          </div>
-                        )}
-                        <div className="pt-0.5">
-                          <p className="text-base font-semibold text-slate-50">{edu.school}</p>
-                          <p className="text-slate-300">{edu.degree}</p>
-                          <p className="text-sm text-slate-200 font-semibold" dangerouslySetInnerHTML={{ __html: edu.detail }} />
-                          <p className="text-xs text-slate-400">{edu.location}</p>
-                        </div>
-                      </div>
-                      <span className="text-xs uppercase tracking-[0.16em] text-slate-400 whitespace-nowrap">{edu.period}</span>
-                    </div>
-                    
-                  </div>
-                ))}
-          </div>
-        </Card>
+      <div id="education" className="education-block">
+        <div className="education-heading">
+          <div><p className="eyebrow"><span>05</span> Education</p><h2>Learning that compounds.</h2></div>
+          <a href="https://www.asu.edu/" target="_blank" rel="noopener noreferrer" aria-label="Arizona State University"><ArrowUpRight size={18} /></a>
+        </div>
+        <div className="education-grid">
+          <article><span className="education-date">JAN 2024 — DEC 2025</span><h3>Arizona State University</h3><p>M.S. Information Technology</p><strong>4.0 / 4.0 GPA</strong></article>
+          <article><span className="education-date">AUG 2019 — MAY 2023</span><h3>Mumbai University</h3><p>B.E. Computer Engineering</p><strong>3.87 / 4.0 GPA</strong></article>
+        </div>
       </div>
     </section>
-  );
-}
-
-function Card({ title, icon, children }: { title: string; icon: ReactNode; children: ReactNode }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 16 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.6, ease: [0.25, 0.8, 0.25, 1] }}
-      className="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-[0_25px_80px_rgba(0,0,0,0.35)] backdrop-blur"
-    >
-      <div className="mb-4 flex items-center gap-2 text-slate-200">
-        <span className="text-cyan-200">{icon}</span>
-        <h2 className="text-lg font-semibold">{title}</h2>
-      </div>
-      {children}
-    </motion.div>
   );
 }
